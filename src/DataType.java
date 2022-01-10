@@ -1,6 +1,6 @@
 /*
 java에는 변수는 기본형 / 참조형이 있으며, 기본형은 논리형(boolean) / 문자형(char) / 정수형(byte, short, int) / 실수형(float, double)이 있습니다.
- */
+*/
 
 public class DataType {
     public static void main(String[] args) {
