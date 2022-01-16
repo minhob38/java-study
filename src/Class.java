@@ -60,7 +60,7 @@ this / this()
 - this는 instance 스스로를 가리킵니다.
 - this()는 class 생성자입니다.
 
-=== inheritance ===
+=== class inheritance ===
 - static(class) 변수가 child class 및 child instance에 상속됩니다.
 - instance 변수가 child class 및 child instance에 상속됩니다.
 - static(class) method가 child class 및 child instance에 상속됩니다.
@@ -123,11 +123,11 @@ class Car extends Vehicle {
     }
 
     void info() { // instance method
-        System.out.println("해당 차량은 " + this.wheel + " " + this.fuel + " " +  this.engine + " " + this.color + " " + "입니다.");
+        System.out.println("해당 차량은 " + super.shape + " " + this.wheel + " " + this.fuel + " " +  this.engine + " " + this.color + " " + "입니다.");
     }
 
     void info(String owner) { // overloading
-        System.out.println(owner + "의 차량은 " + this.wheel + " " + this.fuel + " " +  this.engine + " " + this.color + " " + "입니다.");
+        System.out.println(owner + "의 차량은 " + super.shape + " " + this.wheel + " " + this.fuel + " " +  this.engine + " " + this.color + " " + "입니다.");
     }
 
     void sound() { // overriding
