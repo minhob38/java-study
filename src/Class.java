@@ -6,16 +6,33 @@
 
 public class Class {
     public static void main(String[] args) {
-        System.out.println("\n=== class 선언 ===");
-          Car myCar;
-          myCar = new Car("1.4t", "blue");
-          System.out.println("myCar의 engine/color는 " + myCar.engine + "/" + myCar.color);
-          System.out.println("myCar의 wheel은" + myCar.wheel);
-          System.out.println("Car의 wheel은" + Car.wheel);
-          Car.blow();
-          myCar.blow();
-          myCar.info();
-          myCar.info("민호");
+        // class
+        System.out.println("\n=== class ===");
+        Car myCar;
+        myCar = new Car("1.4t", "blue");
+
+        System.out.println("myCar의 engine/color는 " + myCar.engine + "/" + myCar.color);
+        System.out.println("myCar의 wheel은 " + myCar.wheel);
+        System.out.println("Car의 wheel은 " + Car.wheel);
+        Car.blow();
+        myCar.blow();
+        myCar.info();
+        myCar.info("민호");
+
+        // inheritance
+        System.out.println("\n=== inheritance ===");
+        Vehicle myVehicle;
+        myVehicle = new Vehicle("rectangle");
+        System.out.println("myCar의 shape는 " +  myCar.shape);
+        System.out.println("Vehicle의 hasWheel은 " +  Vehicle.hasWheel);
+        System.out.println("Car의 hasWheel은 " +  Car.hasWheel);
+        System.out.println("myCar의 hasWheel은 " +  myCar.hasWheel);
+        Vehicle.ignite();
+        Car.ignite();
+        myCar.ignite();
+        myCar.shapeinfo();
+        myVehicle.sound();
+        myCar.sound();
     }
 }
 
@@ -24,10 +41,10 @@ public class Class {
 class 변수
 - 멤버변수: instance 변수 (instance에서 접근이 가능합니다.)
 - 멤버변수: static(class)변수 (instance/class에서 접근이 가능합니다.)
-- 지역변수:
+- 지역변수: method 안에 선언된 변수입니다.
 
-class mehod
-- static(class) method: instance/class에서 호출이 가능합니다.
+class method
+- static(class) method: instance/class에서 호출이 가능합니다. (this, super를 사용할 수 없습니다.)
 - instance method: instance에서 호출이 가능합니다.
 
 constructor(생성자)
@@ -42,34 +59,79 @@ this / this()
 - this와 this()는 유사해보이지만 다른것입니다.
 - this는 instance 스스로를 가리킵니다.
 - this()는 class 생성자입니다.
+
+=== inheritance ===
+- static(class) 변수가 child class 및 child instance에 상속됩니다.
+- instance 변수가 child class 및 child instance에 상속됩니다.
+- static(class) method가 child class 및 child instance에 상속됩니다.
+- instance method가 child instance에 상속됩니다.
+
+super / super()
+- super와 super()는 유사해보이지만 다른것입니다.
+- super는 parent instance 스스로를 가리킵니다.
+- super()는 parent class 생성자입니다.
+
+overriding
+- parent class에서 상속받은 method를 덮어씁니다.
+- method의 이름, 매개변수 개수, 반환 자료형이 같아야 합니다.
 */
-class Car {
+class Vehicle {
+    static boolean hasWheel = true;
+    String shape;
+
+    Vehicle (String shape) {
+        this.shape = shape;
+    }
+
+    static void ignite() {
+        System.out.println("덜덜덜");
+    }
+
+    void shapeinfo() {
+        System.out.println("해당 vehicle은 " + this.shape + " 입니다.");
+    }
+
+    void sound() {
+        System.out.println("부르릉");
+    }
+}
+
+
+class Car extends Vehicle {
+
     static int wheel = 4; // static(class) 변수
     static String fuel = "gasoline"; // static(class) 변수
     String engine; // instance 변수
     String color; // instance 변수
 
-    // 생성자
-    Car() {
-        engine = "1.6t";
-        color = "white";
+    Car() { // 생성자
+        super("rectangle"); // super 생성자
+
+        this.engine = "1.6t";
+        this.color = "white";
     }
 
-    Car(String e, String c) {
-        engine = e;
-        color = c;
+    Car(String engine, String color) {
+        super("rectangle");
+
+        this.engine = engine;
+        this.color = color;
     }
 
-    static void blow() { // static(class) method (instance(this)에 접근할 수 없습니다.)
+    static void blow() { // static(class) method
         System.out.println("빵빵");
     }
 
-    void info() { // static(class) method
+    void info() { // instance method
         System.out.println("해당 차량은 " + this.wheel + " " + this.fuel + " " +  this.engine + " " + this.color + " " + "입니다.");
     }
 
     void info(String owner) { // overloading
         System.out.println(owner + "의 차량은 " + this.wheel + " " + this.fuel + " " +  this.engine + " " + this.color + " " + "입니다.");
+    }
+
+    void sound() { // overriding
+        System.out.println("와와왕");
     }
 }
 
