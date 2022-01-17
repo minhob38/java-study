@@ -10,11 +10,11 @@ public class Function {
     - [return 자료형] [함수 이름] (함수 매개변수) { 함수 코드 ...  return [반환값] }
     - java는 순서지향이 아닌 객체지향이기에 함수선언을 아래에 해도 java가 compile 시 모두 선언합니다.
     */
-    public static int add(int m, int n) {
+    static int add(int m, int n) {
         return m + n;
     }
 
-    public static void print(String s) {
+    static void print(String s) {
         System.out.println(s);
     }
 
@@ -24,14 +24,11 @@ public class Function {
     - 기본형 매개변수: 기본형(primitive type)은 값이 복사됩니다.
     - 참조형 매개변수: 참조형(reference type)은 주소가 복사됩니다.
     */
-    public static void changePrimitive(int m) {
+    static void changePrimitive(int m) {
         m = 3;
     }
 
-    public static void changeReference(Data d) {
-        d.m = 3;
-        print("SSS");
-    }
+    static void changeReference(Data d) { d.m = 3; }
 
     public static void main(String[] args) {
         // 함수 선언
