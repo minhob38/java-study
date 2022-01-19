@@ -81,7 +81,6 @@ class Vehicle {
 
 
 class Car extends Vehicle {
-
     static int wheel = 4; // static(class) 변수
     static String fuel = "gasoline"; // static(class) 변수
     String engine; // instance 변수
@@ -119,7 +118,6 @@ class Car extends Vehicle {
 }
 
 class Plane extends Vehicle {
-
     static int wheel = 3; // static(class) 변수
     static String fuel = "jp"; // static(class) 변수
     String engine; // instance 변수
