@@ -1,5 +1,6 @@
 /*
-java에는 변수는 기본형 / 참조형이 있으며, 기본형은 논리형(boolean) / 문자형(char) / 정수형(byte, short, int) / 실수형(float, double)이 있습니다.
+자료형이란 데이터를 표현하는 기준입니다.
+java의 자료형은 기본형 / 참조형이 있으며, 기본형은 논리형(boolean) / 문자형(char) / 정수형(byte, short, int) / 실수형(float, double)이 있습니다.
 */
 
 public class DataType {
@@ -10,6 +11,7 @@ public class DataType {
         short: 2byte (-32768 ~ 32767)
         int: 4byte ( -2147483648 ~ 2147483647)
         long: 8byte (-9223372036854775808 ~ 9223372036854775807)
+        ✏️ 일반적으로 int형을 사용합니다.
          */
         System.out.println("\n=== 정수형 ===");
         // 접미사(L)를 붙여 리터럴 자료형을 정의합니다. (붙이지 않으면 int형입니다.)
@@ -36,6 +38,7 @@ public class DataType {
         - 실수형 -
         float: 4byte (1.4E-45 ~ 3.4E38)
         double: 8byte (4.9E-324 ~ 1.8E308)
+        ✏️ 일반적으로 double형을 사용합니다.
          */
         System.out.println("\n=== 실수형 ===");
         // 접미사(f, d)를 붙여 리터럴 자료형을 정의합니다. (붙이지 않으면 double형입니다.)
@@ -83,8 +86,8 @@ public class DataType {
 
         /*
         - 형변환 -
-        연산을 위해 타입을 일치시켜야 하는 때가 있습니다. 이를 위해 변수 및 리터럴의 타입을 다른타입으로 바꾸는것을 형변환이라 합니다.
-         */
+        연산을 위해 자료형을 일치시켜야 하는 때가 있습니다. 이를 위해 변수 및 리터럴의 자료형을 다른 자료형으로 바꾸는것을 형변환이라 합니다.
+        */
         System.out.println("\n=== 형변환 ===");
         double dou = 5.6d;
         float fl = (float)dou;
