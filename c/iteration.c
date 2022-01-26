@@ -55,6 +55,30 @@ int main(void)
     printf("i는 %d \n", i);
   }
 
+  // infinite loop (for)
+  int k = 0;
+  for (;;)
+  {
+    if (k == 3)
+    {
+      break;
+    }
+    printf("k는 %d \n", k);
+    k++;
+  }
+
+  // infinite loop (while)
+  int l = 0;
+  while (1)
+  {
+    if (l == 3)
+    {
+      break;
+    }
+    printf("l은 %d \n", l);
+    l++;
+  }
+
   /* continue
   continue를 감싸고 있는 반복문 조건식으로 이동합니다.
   */
