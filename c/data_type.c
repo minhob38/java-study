@@ -1,6 +1,6 @@
 /*
 자료형이란 데이터를 표현하는 기준입니다.
-c의 자료형은 논리형(boolean) / 문자형(char) / 정수형(char, short, int, long, long long & unsigned char, unsigned short, unsigned int, unsigned long, unsigned long long) / 실수형(float, double, long double)이 있습니다.
+c의 자료형은 논리형 / 문자형/ 정수형 / 실수형이 있습니다.
 */
 
 #include <stdio.h>
@@ -11,8 +11,8 @@ int main(void)
   - 정수형-
   char: 1byte (-128 ~ 127)
   short: 2byte (-32768 ~ 32767)
-  int: 4byte ( -2147483648 ~ 2147483647)
-  long: 4byte ( -2147483648 ~ 2147483647)
+  int: 4byte (-2147483648 ~ 2147483647)
+  long: 4byte (-2147483648 ~ 2147483647)
   long long: 8byte (-9223372036854775808 ~ 9223372036854775807)
   ✏️ 일반적으로 int형을 사용합니다.
   */
@@ -59,8 +59,8 @@ int main(void)
 
   /*
   - 문자형 -
-  문자: ''
-  문자열: ""
+  문자형은 char에 담깁니다.
+  문자(literal)는 '', 문자열(literal)은 ""로 만듭니다.
    */
   printf("=== 문자형 ===\n");
   char ch = 'c';
@@ -80,14 +80,14 @@ int main(void)
   형변환에는 자동(묵시적)형변환, 강제(명시적)형변환 두가지가 있습니다.
   */
   printf("=== 형변환 ===\n");
-  // 자동(묵시적)형변환은 대입연산(=), 산술연산에서 형이 다르면 일어납니다. 대입연산은 왼쪽 피연산자의 자료형으로 산술연산은 넓은 자료형으로 형변환됩니다.
+  // 자동(묵시적)형변환은 대입연산(=)연산에서 형이 다르면 일어납니다. 대입연산은 왼쪽 피연산자의 자료형으로 형변환됩니다.
   double dm = 3;
   printf("dm은 %f byte %lu \n", dm, sizeof(dm));
 
   int im = 3.5; // warning
   printf("im은 %d byte %lu \n", im, sizeof(im));
 
-    // 자동(묵시적)형변환은 대입연산(=), 산술연산에서 형이 다르면 일어납니다. 대입연산은 왼쪽 피연산자의 자료형으로 산술연산은 넓은 자료형으로 형변환됩니다.
+  // 자동(묵시적)형변환은 산술연산에서 형이 다르면 일어납니다. 산술연산은 넓은 자료형으로 형변환됩니다.
   double dk = 3 / 2;
   printf("dk는 %f byte %lu \n", dk, sizeof(dk));
 

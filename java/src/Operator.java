@@ -1,5 +1,5 @@
 /*
-java에는 단항연산자, 산술연산자, 비교연산자, 논리연산자
+java에는 단항연산자, 산술연산자, 비교연산자, 논리연산자가 있습니다.
 */
 
 public class Operator {
@@ -7,6 +7,8 @@ public class Operator {
         /*
         - 단항 연산자 -
         ?: 조건 연산
+        ++: 후위/전위증가
+        --: 후위/전위감소
         */
         System.out.println("\n=== 단항 연산자 ===");
         int x = 5;
