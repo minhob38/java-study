@@ -1,6 +1,6 @@
 /*
 자료형이란 데이터를 표현하는 기준입니다.
-go의 자료형은 논리형 / 문자형/ 정수형 / 실수형 / 복소수형 / 룬형 / 바이트형이 있습니다.
+go의 자료형은 논리형 / 문자형 / 정수형 / 실수형 / 복소수형 / 룬형 / 바이트형이 있습니다.
 */
 
 package main
@@ -101,4 +101,12 @@ func main() {
 	fmt.Println("rc는", rc, "byte는", unsafe.Sizeof(rc))
 	fmt.Println("rd는", rd, "byte는", unsafe.Sizeof(rd))
     fmt.Println("int64(rd)는", int64(rd), "byte는", unsafe.Sizeof(rd))
+
+    /*
+    - 상수 -
+    const로 상수를 선언합니다.
+    */
+	fmt.Println("\n=== 상수 ===")
+    const M int = 5
+	fmt.Println("M은", M, "byte는", unsafe.Sizeof(M))
 }
