@@ -117,4 +117,8 @@ int main(void)
     int s = 5;
     printf("s는 %d입니다.\n", s);
   }
+
+  /*
+  - static / register -
+  */
 }
