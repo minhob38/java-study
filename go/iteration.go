@@ -11,7 +11,7 @@ import (
 
 func main() {
 	/* for문
-	   조건식이 참이면 구문을 실행합니다.
+	조건식이 참이면 구문을 실행합니다.
 	*/
 	fmt.Println("\n=== for문 ===")
 	for i := 0; i < 5; i++ {
@@ -35,7 +35,7 @@ func main() {
 	}
 
 	/* break
-	   break를 감싸고 있는 반복문을 탈출합니다.
+	break를 감싸고 있는 반복문을 탈출합니다.
 	*/
 	fmt.Println("\n=== break ===")
 	for i := 0; i < 5; i++ {
@@ -56,7 +56,7 @@ func main() {
 	}
 
 	/* continue
-	   continue를 감싸고 있는 반복문 조건식으로 이동합니다.
+	continue를 감싸고 있는 반복문 조건식으로 이동합니다.
 	*/
 	fmt.Println("\n=== continue ===")
 	for i := 0; i < 5; i++ {

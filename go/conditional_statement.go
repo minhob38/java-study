@@ -10,7 +10,7 @@ import (
 
 func main() {
 	/* if문
-	   if 조건이 참이면 실행됩니다.
+	if 조건이 참이면 실행됩니다.
 	*/
 	fmt.Println("\n=== if문 ===")
 	/* 단일 if문 */
@@ -38,9 +38,9 @@ func main() {
 	}
 
 	/* switch문
-		switch문은 해당 조건과 일치하는 case를 실행시킵니다.
-	    switch문 조건에는 정수, 문자열, 조건식이 오도록하며, 하나의 case에 여러 조건을 넣을 수 있습니다.
-	    (go에는 break를 생략할 수 있으며, fallthrough를 통해 아래 case를 실행시킬수 있습니다.)
+	switch문은 해당 조건과 일치하는 case를 실행시킵니다.
+	switch문 조건에는 정수, 문자열, 조건식이 오도록하며, 하나의 case에 여러 조건을 넣을 수 있습니다.
+	(go에는 break를 생략할 수 있으며, fallthrough를 통해 아래 case를 실행시킬수 있습니다.)
 	*/
 	fmt.Println("\n=== switch문 ===")
 	/* 기본 swtich문 */
