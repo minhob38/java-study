@@ -8,14 +8,14 @@ public class ConditionalStatement {
         if 조건이 참이면 실행됩니다.
         */
         System.out.println("\n=== if문 ===");
-        /* 단일 if문*/
+        /* 단일 if문 */
         int m = 5;
 
         if (m > 3) {
             System.out.println("m은 3보다 큽니다.");
         }
 
-        /* if ~ else문*/
+        /* if ~ else문 */
         int n = 1;
 
         if (n > 3) {
@@ -24,7 +24,7 @@ public class ConditionalStatement {
             System.out.println("n은 3과 같거나 작습니다.");
         }
 
-        /* if ~ else if문*/
+        /* if ~ else if문 */
         int o = 3;
 
         if (o > 3) {
@@ -74,7 +74,9 @@ public class ConditionalStatement {
                 System.out.println("계절이 아닙니다.");
         }
 
-        /* 조건 연산자 */
+        /* 조건 연산자
+        조건이 참인 코드를 실행하고 실행결과를 반환합니다.
+        */
         System.out.println("\n=== 조건 연산자 ===");
         int i = 5;
         System.out.println(5 > 3 ? "i는 3보다 큽니다." : "i은 3보다 같거나 작습니다.");

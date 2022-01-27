@@ -55,7 +55,7 @@ int main(void)
     printf("i는 %d \n", i);
   }
 
-  // infinite loop (for)
+  /* infinite loop (for) */
   int k = 0;
   for (;;)
   {
@@ -67,7 +67,7 @@ int main(void)
     k++;
   }
 
-  // infinite loop (while)
+  /* infinite loop (while) */
   int l = 0;
   while (1)
   {
