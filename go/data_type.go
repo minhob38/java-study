@@ -69,7 +69,7 @@ func main() {
 	   - byte형 -
 	   byte에 저장되어 있는 자료형입니다.
 	*/
-	fmt.Println("\n=== 복소수형 ===")
+	fmt.Println("\n=== byte형 ===")
 	var bi byte = 103
 	fmt.Println("bi는", bi, "byte는", unsafe.Sizeof(bi))
 	var bn byte = 'g'
@@ -110,11 +110,51 @@ func main() {
 	fmt.Println("M은", M, "byte는", unsafe.Sizeof(M))
 
 	/*
-	   짧은선언
+			   - 짧은선언 -
+		       :=를 통해 var를 사용하지 않고 변수를 선언할 수 있습니다.
+	           이때 자료형은 오른쪽의 자료형으로 정의됩니다.
 	*/
+	fmt.Println("\n=== 짧은선언 ===")
+	m := 3
+	fmt.Println("m은", m, "byte는", unsafe.Sizeof(m))
+
+	/*
+			    - 변수 비활성화 -
+		        go는 사용하지 않는 변수 및 패키지가 있으면 compile error를 띄웁니다.
+		        이때 _ 를 통해 변수를 비활성화할 수 있습니다.
+	*/
+	fmt.Println("\n=== 변수 비활성화 ===")
+	var a int = 3
+	_ = a
 
 	/*
 	   - scope -
-	   scope는 변수의 유효범위로, c는 block scope입니다.
+	   scope는 변수의 유효범위로, go는 block scope입니다.
 	*/
+	fmt.Println("\n=== scope ===")
+	var p int = 3
+	{
+		var p int = 5
+		fmt.Println("p는", p, "byte는", unsafe.Sizeof(p))
+
+	}
+	fmt.Println("p는", p, "byte는", unsafe.Sizeof(p))
+
+	/*
+		   - literal 자료형 -
+	literal의 자료형은 int, float64, bool입니다.
+	*/
+	fmt.Println("\n=== scope ===")
+	fmt.Printf("3의 자료형은 %T입니다.\n", 3)
+	fmt.Printf("3.0의 자료형은 %T입니다.\n", 3.0)
+	fmt.Printf("3 / 2의 자료형은 %T입니다.\n", 3/2)
+	fmt.Printf("3.0 / 2의 자료형은 %T입니다.\n", 3.0/2)
+	fmt.Printf("true의 자료형은 %T입니다.\n", true)
+	fmt.Printf("'g'의 자료형은 %T입니다.\n", 'g')
+	fmt.Printf("\"golang\"의 자료형은 %T입니다.\n", "golang")
+	fmt.Printf("byte(3)의 자료형은 %T입니다.\n", byte(3))
+	fmt.Printf("3 + 5i의 자료형은 %T입니다.\n", 3+5i)
+
+	// 📝 3.0 / 2는 float64와 int의 연산이지만 float64로 연산되는 것을 보면, go는 변수에 대해 strong type 언어인듯 보입니다.
+	fmt.Printf("3.0의 자료형은 %T, 2의 자료형은 %T, 3.0 / 2의 자료형은 %T입니다.\n", 3.0, 2, 3.0/2)
 }
