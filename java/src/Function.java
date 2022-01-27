@@ -1,5 +1,5 @@
 /*
-함수는 입력과 출력 간 관계의 표현식이며, 또다른 의미로는 하나의 단위로 실행되는 문입니다.
+함수는 입력과 출력 간 관계의 표현식이며, 또다른 의미로는 하나의 단위로 실행되는 code 집합입니다.
 */
 
 class Data { int m = 5; }
@@ -7,7 +7,7 @@ class Data { int m = 5; }
 public class Function {
     /*
     함수 선언
-    - [return 자료형] [함수 이름] (함수 매개변수) { 함수 코드 ...  return [반환값] }
+    - [반환 자료형] [함수 이름] (함수 매개변수) { 함수 코드 ...  return [반환값] }
     - java는 순서지향이 아닌 객체지향이기에 함수선언을 아래에 해도 java가 compile 시 모두 선언합니다.
     - java는 함수 안에 함수를 선언할 수 없습니다.
     */
@@ -32,8 +32,8 @@ public class Function {
     static void changeReference(Data d) { d.m = 3; }
 
     public static void main(String[] args) {
-        // 함수 선언
-        System.out.println("\n=== 함수 선언 ===");
+        // 함수 실행
+        System.out.println("\n=== 함수 실행 ===");
         System.out.println("add(1, 5)은 " + add(1,5) + " 입니다.");
         print("java spring server");
 

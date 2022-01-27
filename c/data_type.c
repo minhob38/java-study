@@ -104,4 +104,17 @@ int main(void)
   printf("=== 상수 ===\n");
   const int M = 5;
   printf("M은 %d \n", M);
+
+  /*
+  - scope -
+  scope는 변수의 유효범위로, c는 block scope입니다.
+  */
+  printf("=== scope ===\n");
+  int s = 3;
+  printf("s는 %d입니다.\n", s);
+
+  {
+    int s = 5;
+    printf("s는 %d입니다.\n", s);
+  }
 }
