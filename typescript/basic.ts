@@ -50,3 +50,27 @@ function funcE(m: number, n: number): number {
 const funcF = function (m: number, n: number): number {
   return m + n;
 };
+
+interface IServer {
+  server: string;
+  language: string;
+}
+
+const servers = [
+  {
+    server: "express",
+    language: "javascript",
+  },
+  {
+    server: "django",
+    language: "python",
+  },
+  {
+    server: "spring",
+    language: "java",
+  },
+];
+
+const serverInfos = servers.map((server: IServer): string => {
+  return `${server.language}의 server는 ${server.server}입니다.`;
+});

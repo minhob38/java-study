@@ -6,7 +6,8 @@
 
 int main(void)
 {
-  /* if문
+  /*
+  [if문]
   if 조건이 참이면 실행됩니다.
   */
 	printf("=== if문 ===\n");
@@ -41,14 +42,16 @@ int main(void)
     printf("k는 3보다 작습니다.\n");
   }
 
-  /* 조건 연산자
+  /*
+  [조건 연산자]
   조건이 참인 코드를 실행하고 실행결과를 반환합니다.
   */
 	printf("=== 조건연산자 ===\n");
   int m = 3;
   m > 3 ? printf("m은 3보다 큽니다.\n") : printf("m은 3보다 작습니다.\n");
 
-  /* switch문
+  /*
+  [switch문]
   switch문은 해당 조건과 일치하는 case로 이동하며, 아래 case들을 실행시킵니다.
   따라서, break를 넣어 해당 조건을 찾으면 switch문을 종료하도록 합니다.
   switch문 조건에는 정수 및 문자열이 오도록합니다.
@@ -74,7 +77,8 @@ int main(void)
     break;
   }
 
-  /* goto
+  /*
+  [goto]
   program의 흐름을 원하는 위치로 이동시킵니다.
   */
   CAR:
