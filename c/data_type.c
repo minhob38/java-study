@@ -40,8 +40,6 @@ int main(void)
   long long lli = 5ll;
   printf("lli는 %lld %lu byte \n", lli, sizeof(lli));
 
-
-
   /*
   [실수형]
   float: 4byte (3.4E-37 ~ 3.4E38)
