@@ -43,5 +43,4 @@ int main(void)
   {
     printf("str[%d]는 %c입니다.\n", i, str[i]);
   }
-
 }

@@ -10,7 +10,8 @@ import (
 )
 
 func main() {
-	/* for문
+	/*
+	[for문]
 	조건식이 참이면 구문을 실행합니다.
 	*/
 	fmt.Println("\n=== for문 ===")
@@ -34,7 +35,8 @@ func main() {
 		fmt.Println("i는:", i, "j는", j)
 	}
 
-	/* break
+	/*
+	[break]
 	break를 감싸고 있는 반복문을 탈출합니다.
 	*/
 	fmt.Println("\n=== break ===")
@@ -45,7 +47,7 @@ func main() {
 		fmt.Println("i는:", i)
 	}
 
-	// infinite loop
+	/* infinite loop */
 	var j int = 0
 	for {
 		if j == 3 {
@@ -55,7 +57,8 @@ func main() {
 		j++
 	}
 
-	/* continue
+	/*
+	[continue]
 	continue를 감싸고 있는 반복문 조건식으로 이동합니다.
 	*/
 	fmt.Println("\n=== continue ===")

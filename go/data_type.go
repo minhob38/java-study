@@ -12,7 +12,7 @@ import (
 
 func main() {
 	/*
-	- 정수형 -
+	[정수형]
 	int8: 1byte (-128 ~ 127)
 	int16: 2byte (-32768 ~ 32767)
 	int32: 4byte (-2147483648 ~ 2147483647)
@@ -32,7 +32,7 @@ func main() {
 	fmt.Println("_in은", _in, "byte는", unsafe.Sizeof(_in))
 
 	/*
-	- 실수형 -
+	[실수형]
 	float32: 4byte (? ~ 3.4E38) - ieee-754 32bit 단정밀도 부동소수점
 	float64: 8byte (?~ 1.7E308) - ieee-754 32bit qo정밀도 부동소수점
 	*/
@@ -43,7 +43,7 @@ func main() {
 	fmt.Println("dn은", dn, "byte는", unsafe.Sizeof(dn))
 
 	/*
-	- 복소수형 -
+	[복소수형]
 	complex64: 4byte (?) float32의 실수부와 허수부로 이루어진 자료형입니다.
 	complex128: 8byte (?) float64의 실수부와 허수부로 이루어진 자료형입니다.
 	*/
@@ -52,7 +52,7 @@ func main() {
 	fmt.Println("ci은", ci, "실수부는", real(ci), "허수부는", imag(ci), "byte는", unsafe.Sizeof(ci))
 
 	/*
-	- 문자형 -
+	[문자형]
 	rune: unicode(utf-8)를 저장하는 자료형입니다. (int32와 크기가 같습니다.)
 	문자는 ''로 만듭니다.
 	*/
@@ -65,7 +65,7 @@ func main() {
 	fmt.Println("ch == chn은", ch == chn)
 
 	/*
-	- byte형 -
+	[byte형]
 	byte에 저장되어 있는 자료형입니다.
 	*/
 	fmt.Println("\n=== byte형 ===")
@@ -75,7 +75,7 @@ func main() {
 	fmt.Println("bn은", bn, "byte는", unsafe.Sizeof(bn))
 
 	/*
-	- 형변환 -
+	[형변환]
 	연산을 위해 자료형을 일치시켜야 하는 때가 있습니다. 이를 위해 변수 및 리터럴의 자료형을 다른 자료형으로 바꾸는것을 형변환이라 합니다.
 	go는 strong type 언어로 자동형변환이 일어나지 않습니다. (<- 대입연산은 아니지만, 산술연산에서는 일어나는듯)
 	*/
@@ -101,7 +101,7 @@ func main() {
 	fmt.Println("int64(rd)는", int64(rd), "byte는", unsafe.Sizeof(rd))
 
 	/*
-	- 상수 -
+	[상수]
 	const로 상수를 선언합니다.
 	*/
 	fmt.Println("\n=== 상수 ===")
@@ -109,7 +109,7 @@ func main() {
 	fmt.Println("M은", M, "byte는", unsafe.Sizeof(M))
 
 	/*
-	- 짧은선언 -
+	[짧은선언]
 	:=를 통해 var를 사용하지 않고 변수를 선언할 수 있습니다.
 	이때 자료형은 오른쪽의 자료형으로 정의됩니다.
 	*/
@@ -118,7 +118,7 @@ func main() {
 	fmt.Println("m은", m, "byte는", unsafe.Sizeof(m))
 
 	/*
-	- 변수 비활성화 -
+	[변수 비활성화]
 	go는 사용하지 않는 변수 및 패키지가 있으면 compile error를 띄웁니다.
 	이때 _ 를 통해 변수를 비활성화할 수 있습니다.
 	*/
@@ -127,7 +127,7 @@ func main() {
 	_ = a
 
 	/*
-	- scope -
+	[scope]
 	scope는 변수의 유효범위로, go는 block scope입니다.
 	*/
 	fmt.Println("\n=== scope ===")
@@ -140,7 +140,7 @@ func main() {
 	fmt.Println("p는", p, "byte는", unsafe.Sizeof(p))
 
 	/*
-	- literal 자료형 -
+	[literal 자료형]
 	literal의 자료형은 int, float64, bool입니다.
 	*/
 	fmt.Println("\n=== scope ===")
