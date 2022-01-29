@@ -3,6 +3,7 @@
 */
 
 #include <stdio.h>
+#include <string.h>
 
 int main(void)
 {
@@ -33,11 +34,17 @@ int main(void)
   (자동으로 문자열 끝에 null문자인 \0를 붙입니다.)
   */
 	printf("=== 문자열 ===\n");
-  char str[] = "c language : )";
   /* 선언을 초기화와 함께 하면, 길이를 생략할 수 있습니다. */
+  char str[] = "c language : )";
 
-  printf("str은 %s이며 %lu byte 입니다.\n", str, sizeof(str));
+  /* 선언과 초기화를 따로 하면, 서로 다른 메모리 공간을 가지고 있기에, strcpy로 할당을 해야합니다. */
+  char stri[30];
+  // stri = "c language : )"; - error
+  strcpy(stri, "c language : )");
+  printf("stri은 %s이며 %lu byte 입니다.\n", stri, sizeof(stri));
+
   /* printf("null문자는 정수형은 %d, 문자형은 %c입니다.", str[14], str[14]); */
+  printf("str은 %s이며 %lu byte 입니다.\n", str, sizeof(str));
 
   for (int i = 0; i < 14; i++)
   {
@@ -59,4 +66,9 @@ int main(void)
 			printf("d[%d][%d]는 %d입니다.\n", i, j, d[i][j]);
 		}
 	}
+
+	printf("=== 배열 얕은복사 ===\n");
+  /* 배열이름은 시작주소를 담고 있습니다.*/
+  int e[] = { 1, 2, 3 };
+  // int f[] = e; - error: e는 { 1, 2, 3 }이 아닌 시작주소입니다. 따라서, f에 할당할 수 없습니다.
 }
