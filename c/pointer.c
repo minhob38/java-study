@@ -6,7 +6,7 @@
 
 #include <stdio.h>
 
-void pointer_func(int * arr)
+void pointer_func_a(int * arr)
 {
   for (int i = 0; i < 3; i++)
   {
@@ -14,17 +14,43 @@ void pointer_func(int * arr)
   }
 }
 
-void array_func(int arr[])
+void array_func_a(int arr[])
 {
   for (int i = 0; i < 3; i++)
   {
     printf("배열의 요소는 %d입니다.\n", arr[i]);
   }
+}
+
+void pointer_func_b(int (* arr)[3])
+{
+  for (int i = 0; i < 3; i++)
+  {
+		for (int j = 0; j < 3; j++)
+    {
+			printf("배열의 요소는 %d입니다.\n", arr[i][j]);
+		}
+	}
+}
+
+void array_func_b(int arr[][3])
+{
+  for (int i = 0; i < 3; i++)
+  {
+		for (int j = 0; j < 3; j++)
+    {
+			printf("배열의 요소는 %d입니다.\n", arr[i][j]);
+		}
+	}
+}
+
+int add(int m, int n)
+{
+  return m + n;
 }
 
 int main(void)
 {
-  /* 베열 선언 */
 	printf("=== 포인터 변수 선언 및 할당===\n");
   /*
   [포인터 변수 선언 및 할당]
@@ -82,7 +108,6 @@ int main(void)
   (e.g: 포인터에 +1을 하면, int형은 4byte이기에 가리키는 주소가 +4가 되며, doint형은 8byte이기에 가리키는 주소가 +8이 됩니다.)
   */
 	printf("=== 포인터 연산 ===\n");
-  // int arr[] = { 1, 2, 3 };
   int a = 3;
   int * pa = &a;
   printf("pa는 %p입니다.\n", pa);
@@ -106,8 +131,8 @@ int main(void)
   */
 	printf("=== 문자열 ===\n");
   char * pstr = "c language : )";
-  printf("pstr은 %p입니다.\n", pstr);
-  printf("*pstr은 %s입니다.\n", pstr);
+  printf("pstr의 주소형태는 %p입니다.\n", pstr);
+  printf("pstr은 문자열형태는 %s입니다.\n", pstr);
 
   /*
   [포인터 배열]
@@ -123,12 +148,73 @@ int main(void)
   printf("*pijk[1]은 %d입니다.\n", *pijk[1]);
   printf("*pijk[2]는 %d입니다.\n", *pijk[2]);
 
+  char * q = "c", * w = "go", * e = "python"; // 문자열은 주소를 반환합니다.
+  char ** dq = &q , ** dw = &w, ** de = &e;
+  char * r[] = { q, w, e }; // pointer 배열입니다.
+  char ** z = r; // r은 pointer를 담고있는 배열이기에 double pointer로 받아야 합니다.
+
+  for (int i = 0; i < 3; i++)
+  {
+    printf("r[%d]의 주소형태는 %p입니다.\n", i, r[i]);
+    printf("r[%d]의 문자열형태는 %s입니다.\n", i, r[i]);
+
+    printf("z[%d]의 주소형태는 %p입니다.\n", i, z[i]);
+    printf("z[%d]의 문자열형태는 %s입니다.\n", i, z[i]);
+  }
+
   /*
   [함수인자로 배열 넘겨주기]
-  함수의 매개변수로 배열을 선언할 수 없기에, 포인터로 배열을 함수에 넘겨줍니다.
+  - 함수의 매개변수로 배열을 선언할 수 없기에, 포인터로 배열을 함수에 넘겨줍니다.
+  - 2차원 배열은 포인터에 +1을 했을때, 가리키는 주소(열의 크기)로 배열 포인터를 통해 함수에 넘겨줍니다.
+  - 배열은 arr[i]처럼 index로 주소를 참조하여 변수를 가져옵니다. (따라서, index가 포인터연산과 같습니다.)
+  - 2차원 배열의 경우 arr[i][j]처럼 행/열 index가 두개이기 때문에, 해당 행을 가져올때 어떤 주소를 가져올지 기준이 있어야하며, 열의 크기로 기준을 정할 수 있습니다.
+  따라서, 배열 포인터([type] (*parr) [열의 크기]))를 만들어 함수인자로 배열을 넘겨주어야 합니다.
   */
 	printf("=== 함수인자로 배열 넘겨주기 ===\n");
-  int args[] = { 1, 2, 3 };
-  pointer_func(args);
-  array_func(args);
+  int args_a[] = { 1, 2, 3 };
+  pointer_func_a(args_a);
+  array_func_a(args_a);
+
+  int args_b[3][3] = {
+    { 1, 2, 3 },
+    { 4, 5, 6 },
+    { 7, 8, 9 }
+  };
+  pointer_func_b(args_b);
+  array_func_b(args_b);
+
+  /*
+  [다중 포인터]
+  포인터 변수 또한 메모리에 저장되기에, 이를 가리키는 포인터 변수를 만들 수 있습니다.
+  이처럼 포인터를 가리키는 포인터를 다중 포인터라 합니다.
+  */
+	printf("=== 다중포인터 ===\n");
+  int m = 3;
+  int *pm = &m;
+  int **dpm = &pm;
+  printf("pm은 %p입니다.\n", pm);
+  printf("dpm은 %p입니다.\n", dpm);
+  printf("*pm은 %d입니다.\n", *pm);
+  printf("*dpm은 %p입니다.\n", *dpm);
+  printf("**dpm은 %d입니다.\n", **dpm);
+
+  /*
+  [함수 포인터]
+  - 함수가 저장되어 있는 메모리 주소를 포인터로 가리킬 수 있습니다.
+  - 함수 포인터는 [반환 자료형] * [함수포인터 이름] ([매개변수 자료형])으로 만들 수 있습니다.
+  */
+	printf("=== 함수 포인터 ===\n");
+  int (* padd)(int, int) = add;
+  printf("add(2, 3)은 %d입니다.\n", add(2, 3));
+  printf("padd(2, 3)은 %d입니다.\n", padd(2, 3));
+
+  /*
+  [void 포인터]
+  - 모든 포인터형을 담을 수 있습니다.
+  - 포인터형이 정의되지 않았기에, 연산 및 참조가 안됩니다.
+  */
+	printf("=== void 포인터 ===\n");
+  int h = 0;
+  void * ph = &h;
+  printf("pi는 %p입니다.\n", ph);
 }
