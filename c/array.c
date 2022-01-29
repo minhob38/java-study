@@ -71,4 +71,18 @@ int main(void)
   /* 배열이름은 시작주소를 담고 있습니다.*/
   int e[] = { 1, 2, 3 };
   // int f[] = e; - error: e는 { 1, 2, 3 }이 아닌 시작주소입니다. 따라서, f에 할당할 수 없습니다.
+  int * f = e;
+  for (int i = 0; i < 3; i++)
+  {
+    printf("f[%d]는 %d입니다.\n", i, f[i]);
+  }
+
+  printf("=== 배열 깊은복사 ===\n");
+  int g[] = { 1, 2, 3 };
+  int h[3];
+  memcpy(h, g, sizeof(int) * 3);
+  for (int i = 0; i < 3; i++)
+  {
+    printf("h[%d]는 %d입니다.\n", i, h[i]);
+  }
 }
