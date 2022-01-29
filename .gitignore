@@ -13,3 +13,5 @@ c/array
 c/pointer
 c/structure
 c/memory
+c/preprocessor
+c/module/module
