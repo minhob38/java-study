@@ -1,6 +1,7 @@
 /*
 자료형이란 데이터를 표현하는 기준입니다.
-go의 자료형은 논리형 / 문자형 / 정수형 / 실수형 / 복소수형 / 룬형 / 바이트형이 있습니다.
+go의 자료형은 정수형 / 실수형 / 복소수형 / 룬형 / 바이트 / 문자형 / 문자열 / 논리형이 있습니다.
+(+ 배열, slice, structure, map)
 */
 
 package main
@@ -74,13 +75,23 @@ func main() {
 
 	/*
 	[byte형]
-	byte에 저장되어 있는 자료형입니다.
+	byte: byte에 저장되어 있는 자료형입니다.
 	*/
 	fmt.Println("\n=== byte형 ===")
 	var bi byte = 103
 	fmt.Println("bi는", bi, "byte는", unsafe.Sizeof(bi))
 	var bn byte = 'g'
 	fmt.Println("bn은", bn, "byte는", unsafe.Sizeof(bn))
+
+	/*
+	[논리형]
+	bool: true(참) / false(거짓)을 저장할 수 있는 자료형입니다.
+	*/
+	fmt.Println("\n=== 논리형 ===")
+	var isa bool = true
+	var isb bool = false
+	fmt.Println("isa는", isa, "byte는", unsafe.Sizeof(isa))
+	fmt.Println("isb는", isb, "byte는", unsafe.Sizeof(isb))
 
 	/*
 	[형변환]
