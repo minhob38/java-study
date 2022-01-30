@@ -29,10 +29,8 @@ func main() {
 		fmt.Printf("d[%d]는 %d입니다.\n", i, d[i])
 	}
 
-  /* 선언을 초기화와 함께 하면, 길이를 생략할 수 있습니다. */
+  /* 선언을 초기화와 함께 하면, ...를 통해 길이를 생략할 수 있습니다. */
 	e := [...]int{1, 2, 3, 4, 5}
-	// var f []int = []int{1, 2, 3, 4, 5} - index를 벗어나도 error 안 띄움
-	// g := []int{1, 2, 3, 4, 5} - index를 벗어나도 error 안 띄움
 
 	for i := 0; i < 5; i++ {
 		fmt.Printf("e[%d]는 %d입니다.\n", i, e[i])
@@ -84,7 +82,7 @@ func main() {
 	*/
 	fmt.Println("\n=== 배열 복사 ===")
 	h := [...]int{11, 12, 13}
-	i := h
+	i := h // var i [3]int = h와 같습니다.
 
 	for k, value := range h {
 		fmt.Printf("value(h[%d])는 %d입니다.\n", k, value)
@@ -100,4 +98,23 @@ func main() {
 	for k, value := range i {
 		fmt.Printf("value(i[%d])는 %d입니다.\n", k, value)
 	}
+
+	/*
+	[배열 가져오기]
+  - [m:n]으로 배열을 slice로 가져올 수 있습니다.
+	- 가져온 slice는 참조형입니다.
+	*/
+	fmt.Println("\n=== slice 가져오기 ===")
+	l := [...]int{ 1, 2, 3, 4, 5 }
+	fmt.Println("l[1:3]은", l[1:3])
+	fmt.Println("l[:3]은", l[:3])
+	fmt.Println("l[1:]은", l[1:])
+	fmt.Println("l[:]은", l[:])
+
+	m := l[1:3]
+	fmt.Println("l은", l)
+	fmt.Println("m는", m)
+	m[0] = -3
+	fmt.Println("l은", l)
+	fmt.Println("m는", m)
 }
