@@ -69,4 +69,7 @@ int main(void)
   {
     printf("넘겨준 함수인자는 arr[%d]는 %d입니다.(함수실행 뒤)\n", i, arr[i]);
   }
+
+  /*
+  */
 }

@@ -45,7 +45,7 @@ int main(void)
   printf("=== 구조체 초기화 ===\n");
   /*
   [구조체 초기화]
-  구조체 선언과 함께 member 순서대로 {}에 담아 초기화 합니다.
+  구조체 선언과 함께 member 순서대로 {}에 담아 초기화합니다.
   */
   struct dog yourdog = { "badugi", 3 };
   printf("yourdog의 name은 %s age는 %d 입니다.\n", yourdog.name, yourdog.age);

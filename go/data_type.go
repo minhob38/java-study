@@ -56,13 +56,21 @@ func main() {
 	rune: unicode(utf-8)를 저장하는 자료형입니다. (int32와 크기가 같습니다.)
 	문자는 ''로 만듭니다.
 	*/
-	fmt.Println("\n=== 복소수형 ===")
+	fmt.Println("\n=== 문자형 ===")
 	var ch rune = 'g'
 	fmt.Println("ch는", ch, "byte는", unsafe.Sizeof(ch))
 	var chn rune = 103
 	fmt.Println("chn은", chn, "byte는", unsafe.Sizeof(chn))
 
 	fmt.Println("ch == chn은", ch == chn)
+
+	/*
+	[문자열]
+	string: 문자열을 저장할 수 있는 자료형입니다.
+	*/
+	fmt.Println("\n=== 문자열 ===")
+	var str string = "go language : )"
+	fmt.Println("str은", str, "byte는", unsafe.Sizeof(str))
 
 	/*
 	[byte형]
