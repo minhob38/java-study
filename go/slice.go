@@ -8,6 +8,16 @@ import (
 	"fmt"
 )
 
+func modify(sli []int) {
+  for i := 0; i < len(sli); i ++ {
+    fmt.Printf("받은 함수인자는 sli[%d]는 %d입니다.(할당전)\n", i, sli[i]);
+  }
+  sli[0] = 5;
+  for i := 0; i < len(sli); i ++ {
+    fmt.Printf("받은 함수인자는 sli[%d]는 %d입니다.(할당후)\n", i, sli[i]);
+  }
+}
+
 func main() {
 	fmt.Println("\n=== slice 선언 ===")
 	/*
@@ -122,4 +132,15 @@ func main() {
 	j[0] = -3
 	fmt.Println("i는", i)
 	fmt.Println("j는", j)
+
+	fmt.Println("\n=== 함수인자(slice) ===")
+	/*
+	[함수인자(slice)]
+	slice를 넘겨줄때 주소값을 넘겨줍니다. 따라서, 함수에서 매개변수를 수정하면 원본 slice도 바뀝니다.
+	*/
+	sli := []int{1, 2, 3} // var arr [3]int = [...]int{1, 2, 3}과 같습니다.
+	modify(sli)
+	for i := 0; i < len(sli); i ++ {
+    fmt.Printf("받은 함수인자는 sli[%d]는 %d입니다.(함수실행 뒤)\n", i, sli[i]);
+  }
 }

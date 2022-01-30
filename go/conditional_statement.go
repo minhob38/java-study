@@ -85,4 +85,35 @@ func main() {
 	default:
 		fmt.Println("default")
 	}
+
+	/*
+  [goto]
+  program의 흐름을 원하는 위치로 이동시킵니다.
+  */
+
+	var q int = 0
+	fmt.Println(q)
+
+CAR:
+  fmt.Println("🏎");
+
+	if q < 3 {
+		fmt.Println("k는 3보다 큽니다.")
+		q++
+    goto CAR;
+
+	} else if q == 3 {
+		fmt.Println("k는 3과 같거나 작습니다.")
+    goto PLANE;
+
+	} else if q < 3 {
+		fmt.Println("k는 3보다 작습니다.")
+		goto TRAIN
+	}
+
+PLANE:
+	fmt.Println("🛩")
+
+TRAIN:
+  fmt.Println("🚂")
 }

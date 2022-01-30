@@ -81,29 +81,31 @@ int main(void)
   [goto]
   program의 흐름을 원하는 위치로 이동시킵니다.
   */
-  CAR:
-    printf("🏎\n");
-
   int p = 3;
+
+CAR:
+  printf("🏎\n");
+
+
   if (p > 3)
   {
     printf("p는 3보다 큽니다.\n");
-    goto PLANE;
+    p++;
+    goto CAR;
   }
   else if (p == 3)
   {
     printf("p는 3과 같습니다.\n");
-    goto TRAIN;
+    goto PLANE;
   }
   else if (p < 3)
   {
     printf("p는 3보다 작습니다.\n");
-    goto CAR;
+    goto TRAIN;
   }
 
-  PLANE:
-    printf("🛩\n");
-
-  TRAIN:
-    printf("🚂\n");
+PLANE:
+  printf("🛩\n");
+TRAIN:
+  printf("🚂\n");
 }

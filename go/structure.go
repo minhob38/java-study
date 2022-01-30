@@ -8,6 +8,32 @@ import (
 	"fmt"
 )
 
+type Cat struct
+{
+	name string;
+	age int;
+};
+
+func catinfo(cat *Cat) {
+  fmt.Println("catinfo 함수")
+	fmt.Printf("cat의 name은 %s age는 %d 입니다.\n", cat.name, cat.age);
+  fmt.Println(cat)
+}
+
+func catold(cat *Cat) {
+  fmt.Println("dogold 함수")
+	cat.age++
+	fmt.Printf("cat의 name은 %s age는 %d 입니다.\n", cat.name, cat.age);
+  fmt.Println(cat)
+}
+
+func catcopy(cat Cat) {
+  fmt.Println("catcopy 함수")
+	cat.age++
+	fmt.Printf("cat의 name은 %s age는 %d 입니다.\n", cat.name, cat.age);
+  fmt.Println(cat)
+}
+
 type Plane struct {
 	engine string
 	span int
@@ -80,13 +106,27 @@ func main() {
 	fmt.Printf("minhodog의 name은 %s age는 %d 입니다.\n", minhodog.name, minhodog.age)
   fmt.Println("minhodog는", minhodog, "pdog는", pdog, "입니다")
 
+	fmt.Println("\n=== 함수인자(구조체) ===")
+	/*
+	[함수인자(구조체)]
+	구조체를 넘겨줄때 주소값을 넘겨줍니다. 따라서, 함수에서 매개변수를 수정하면 원본 구조체도 바뀝니다.
+	(구조체(구조체 주소가 아닌)를 넘기면, 매개변수가 복사되어 pass-by-value로 실행됩니다.)
+	*/
+  var mycat Cat = Cat{ "dodo", 5 }
+	fmt.Printf("mycat의 name은 %s age는 %d 입니다.\n", mycat.name, mycat.age);
+	catinfo(&mycat)
+	catold(&mycat)
+	fmt.Printf("mycat의 name은 %s age는 %d 입니다.\n", mycat.name, mycat.age);
+	catcopy(mycat)
+	fmt.Printf("mycat의 name은 %s age는 %d 입니다.\n", mycat.name, mycat.age);
+
 	fmt.Println("\n=== 구조체 함수 ===")
   /*
   [구조체 함수]
   - go는 class가 없기에 구조체를 통해 함수를 연결합니다.
 	- func ([연결할 reciever 이름] *[구조체 이름] [함수 이름] (함수 매개변수) [반환 자료형] { 함수 코드 ...  return [반환값] }
   - reciever는 this와 비슷합니다.
-	- reciever는 구조체 주소 또는 구조체를 받을 수 있으며, 구조체 주소는 원구조체를 수정하며 구조체는 복사된 구조체를 수정합니다.
+	- reciever는 구조체 주소 또는 구조체를 받을 수 있으며, 구조체 주소는 원본 구조체를 수정하며 구조체는 복사된 구조체를 수정합니다.
 	*/
 	var myplane Plane = Plane{engine: "turbofan", span: 30}
 	myplane.fly("f16")

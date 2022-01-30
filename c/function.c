@@ -60,16 +60,16 @@ int main(void)
   - call-by-value: 매개변수에 값을 전달합니다.
   - call-by-reference: 매개변수에 주소값을 전달합니다.
   */
+  /* call-by-value */
   int m = 3;
   call_by_value(m);
-  printf("넘겨준 함수인자는 %d입니다.(함수실행 뒤)\n", m);
+  printf("넘겨준 함수인자 m은 %d입니다.(함수실행 뒤)\n", m);
+
+  /* call-by-reference */
   int arr[] = { 1, 2, 3};
   call_by_reference(arr);
     for (int i = 0; i < 3; i ++)
   {
     printf("넘겨준 함수인자는 arr[%d]는 %d입니다.(함수실행 뒤)\n", i, arr[i]);
   }
-
-  /*
-  */
 }

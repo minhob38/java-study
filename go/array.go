@@ -8,6 +8,16 @@ import (
 	"fmt"
 )
 
+func modify(arr [3]int) {
+	for i := 0; i < len(arr); i ++ {
+    fmt.Printf("받은 함수인자는 arr[%d]는 %d입니다.(할당전)\n", i, arr[i]);
+  }
+  arr[0] = 5
+	for i := 0; i < len(arr); i ++ {
+    fmt.Printf("받은 함수인자는 arr[%d]는 %d입니다.(할당후)\n", i, arr[i]);
+  }
+}
+
 func main() {
 	/* 배열 선언 */
 	fmt.Println("\n=== 배열 선언 ===")
@@ -117,4 +127,15 @@ func main() {
 	m[0] = -3
 	fmt.Println("l은", l)
 	fmt.Println("m는", m)
+
+	fmt.Println("\n=== 함수인자(배열) ===")
+	/*
+	[함수인자(배열)]
+	배열을 넘겨줄때 매개변수에 복사합니다. 따라서, 함수에서 매개변수를 수정하면 원본 배열은 바뀌지 않습니다.
+	*/
+  arr := [...]int{1, 2, 3} // var arr [3]int = [...]int{1, 2, 3}과 같습니다.
+	modify(arr)
+	for i := 0; i < len(arr); i ++ {
+    fmt.Printf("받은 함수인자는 arr[%d]는 %d입니다.(함수실행 뒤)\n", i, arr[i]);
+  }
 }

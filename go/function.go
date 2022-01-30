@@ -8,31 +8,22 @@ import (
 	"fmt"
 )
 
-type Dog struct
-{
-	name string;
-	age int;
-};
-
-func doginfo(dog *Dog) {
-  fmt.Println("doginfo 함수")
-	fmt.Printf("dog의 name은 %s age는 %d 입니다.\n", dog.name, dog.age);
-  fmt.Println(dog)
+func pass_by_value(val int) {
+	fmt.Printf("받은 함수인자는 %d입니다.(할당전)\n", val)
+	val = 5
+	fmt.Printf("받은 함수인자는 %d입니다.(할당후)\n", val)
 }
 
-func dogold(dog *Dog) {
-  fmt.Println("dogold 함수")
-	dog.age++
-	fmt.Printf("dog의 name은 %s age는 %d 입니다.\n", dog.name, dog.age);
-  fmt.Println(dog)
+func pass_by_reference(sli []int) {
+  for i := 0; i < len(sli); i ++ {
+    fmt.Printf("받은 함수인자는 sli[%d]는 %d입니다.(할당전)\n", i, sli[i]);
+  }
+  sli[0] = 5;
+  for i := 0; i < len(sli); i ++ {
+    fmt.Printf("받은 함수인자는 sli[%d]는 %d입니다.(할당후)\n", i, sli[i]);
+  }
 }
 
-func dogcopy(dog Dog) {
-  fmt.Println("dogcopy 함수")
-	dog.age++
-	fmt.Printf("dog의 name은 %s age는 %d 입니다.\n", dog.name, dog.age);
-  fmt.Println(dog)
-}
 
 func add(m int, n int) int {
 	return m + n
@@ -92,17 +83,16 @@ func main() {
 	- pass-by-value: 매개변수에 값을 전달합니다.
 	- pass-by-reference: 매개변수에 주소값을 전달합니다.
 	*/
+  /* call-by-value */
 	fmt.Println("\n=== 함수 매개변수 ===")
-	/*
-	[pass-by-reference (구조체)]
-	구조체를 넘겨줄때 주소값을 넘겨줍니다. 따라서, 함수에서 매개변수를 수정하면 원래 구조체도 바뀝니다.
-	(구조체(구조체 주소가 아닌)를 넘기면, 매개변수가 복사되어 pass-by-value로 실행됩니다.)
-	*/
-  var mydog Dog = Dog{ "dingo", 5 }
-	fmt.Printf("mydog의 name은 %s age는 %d 입니다.\n", mydog.name, mydog.age);
-	doginfo(&mydog)
-	dogold(&mydog)
-	fmt.Printf("mydog의 name은 %s age는 %d 입니다.\n", mydog.name, mydog.age);
-	dogcopy(mydog)
-	fmt.Printf("mydog의 name은 %s age는 %d 입니다.\n", mydog.name, mydog.age);
+  var val int = 3
+	pass_by_value(val)
+  fmt.Printf("넘겨준 함수인자 val은 %d입니다.(함수실행 뒤)\n", val);
+
+  /* call-by-reference */
+	sli := []int{1, 2, 3}
+  pass_by_reference(sli)
+  for i := 0; i < len(sli); i ++ {
+    fmt.Printf("받은 함수인자는 sli[%d]는 %d입니다.(함수실행 뒤)\n", i, sli[i]);
+  }
 }
