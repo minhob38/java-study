@@ -24,6 +24,17 @@ func pass_by_reference(sli []int) {
   }
 }
 
+var global_val string = "global function variable"
+
+func outer_func() func() {
+	var outer_val string = "outer function variable"
+    return func() {
+			var inner_val string = "inner function variable"
+      fmt.Println("inner_val은", inner_val, "입니다.");
+      fmt.Println("outer_val은", outer_val, "입니다.");
+      fmt.Println("global_val은", global_val, "입니다.");
+		}
+}
 
 func add(m int, n int) int {
 	return m + n
@@ -74,8 +85,18 @@ func main() {
 
 	fmt.Println("\n=== 함수(anonymous) 실행 ===")
 	func(m int, n int) { // 함수에 이름이 없음
-		fmt.Println("m + n은", m+n, "입니다.")
+		fmt.Println("m + n은", m + n, "입니다.")
 	}(3, 5)
+
+	var c func(int, int) = func(m int, n int) {
+		fmt.Println("m + n은", m + n, "입니다.")
+	}
+	c(3, 5)
+
+  d := func(m int, n int) {
+		fmt.Println("m + n은", m + n, "입니다.")
+	}
+	d(3, 5)
 
 	/*
 	[함수 매개변수]
@@ -95,4 +116,42 @@ func main() {
   for i := 0; i < len(sli); i ++ {
     fmt.Printf("받은 함수인자는 sli[%d]는 %d입니다.(함수실행 뒤)\n", i, sli[i]);
   }
+
+	/*
+	[closure]
+	closure는 inner 함수가 outer 함수를 참조할때, outer 함수가 종료되도 참조하는 outer scope의 변수들이 메모리에 남아있는 것을 의미합니다.
+	*/
+	fmt.Println("\n=== clousure ===")
+	inner_func := outer_func()
+	inner_func()
+
+	/*
+	[지연실행]
+	- defer로 감싸고 있는 함수가 끝나기 직전에, defer 뒤에 있는 함수를 실행시킬 수 있습니다.
+	- defer는 stack처럼 LIFO로 실행됩니다.
+	*/
+	fmt.Println("\n=== 지연실행 ===")
+	defer func() {
+    fmt.Println("defer a")
+	}()
+
+	func () {
+    fmt.Println("normal a")
+	}()
+
+	defer func() {
+    fmt.Println("defer b")
+	}()
+
+	defer func() {
+    fmt.Println("defer c")
+	}()
+
+	func () {
+    fmt.Println("normal b")
+	}()
+
+	func () {
+    fmt.Println("normal c")
+	}()
 }

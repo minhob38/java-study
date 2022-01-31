@@ -87,4 +87,6 @@ func main() {
 
 	fmt.Println("e는", e, "입니다.")
 	fmt.Println("e[\"dog\"][\"age\"]는", e["dog"]["age"], "입니다.")
+
+	// map 함수인자
 }
