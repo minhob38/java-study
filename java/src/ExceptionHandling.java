@@ -126,7 +126,7 @@ public class ExceptionHandling {
         /* 예외 만들기
         Exception class를 상속받아, 새로운 예외를 만들 수 있습니다.
         */
-        System.out.println("\n=== 예외 발생시키기 ===");
+        System.out.println("\n=== 예외 만들기 ===");
         try {
             System.out.println("throw 시작");
             throw new MyException("exception : (");
