@@ -1,0 +1,13 @@
+version: "3.0"
+services:
+  docker-database:
+    build:
+      context: .
+      dockerfile: Dockerfile.database
+    ports:
+      - 5435:5432
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d/
