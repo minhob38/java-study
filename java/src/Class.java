@@ -188,7 +188,7 @@ class Labtop extends Computer {
 
 interface Watch {
     public static final int HOURS = 12;
-    public abstract  void alarm ();
+    public abstract  void alarm (); // interface에서 pubic abstract는 생략가능합니다.
     static void timer () {
         System.out.println("따르릉");
     }
