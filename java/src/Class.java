@@ -165,7 +165,7 @@ abstract class Computer {
     static void reset () {
         System.out.println("흐으응");
     }
-    abstract void turnon ();
+    abstract void turnon (); // abstact mehod는 function body가 없습니다.
     // abstract void turnoff (); error - abstract method는 child class에서 완성되어야 합니다.
 
     void sleep() {
@@ -188,7 +188,7 @@ class Labtop extends Computer {
 
 interface Watch {
     public static final int HOURS = 12;
-    public abstract  void alarm (); // interface에서 pubic abstract는 생략가능합니다.
+    public abstract void alarm (); // interface에서 pubic abstract modifier는 생략가능합니다.
     static void timer () {
         System.out.println("따르릉");
     }
@@ -199,8 +199,6 @@ class SmartWatch implements Watch {
         System.out.println("뜨르릉");
     }
 }
-
-
 
 public class Class {
     static Watch makeSmartWatch () {
