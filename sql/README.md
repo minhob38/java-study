@@ -1,6 +1,6 @@
 # SQL
 
-sql(postgresql)을 정리한 저장소로, sql keyword를 기준으로 정리되어 있습니다.
+sql(postgresql)을 정리한 저장소입니다.
 
 ## 환경
 
