@@ -53,6 +53,12 @@ interface는 abstract class보다 더 추상화된 class입니다. 따라서 cla
 - abstract method, static method, default method만 가질 수 있습니다.
 - 생성자를 가질 수 없습니다.
 - member 변수들은 public static final이며, modifier은 생략가능합니다.
+- 자료형을 interface로 하면 아래처럼 유연한 코드를 설계할 수 있습니다.
+interface I { ... }
+class A implements I { ... }
+class B implements I { ... }
+A a = new A(); // A를 B로 바꾸면 func도 수정해야합니다. 반면 a 및 func 매개변수 자료형을 I로 바꾸면 A를 B로 바꾸기만 하면 됩니다.
+void func(A a) { ... }
 
 === inner class ===
 === anonymous class ===

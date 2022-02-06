@@ -31,6 +31,10 @@ public class Function {
 
     static void changeReference(Data d) { d.m = 3; }
 
+    interface LambdaFunction {
+        public abstract void lambda(String str);
+    }
+
     public static void main(String[] args) {
         // 함수 실행
         System.out.println("\n=== 함수 실행 ===");
@@ -44,5 +48,24 @@ public class Function {
         System.out.println("changePrimitive 함수 실행 전 m은 " + d.m + "함수 실행 후 m은 " + d.m + " 입니다.");
         changeReference(d);
         System.out.println("changeReference 함수 실행 전 m은 " + d.m + "함수 실행 후 m은 " + d.m + " 입니다.");
+
+        /*
+        [lambda 함수]
+        lambda 함수는 함수의 표현식입니다.
+        */
+        System.out.println("\n=== lambda 함수 ===");
+        /*
+        [lambda 함수 만들기]
+        (함수 매개변수) -> { 함수 코드 ... return }
+        */
+        LambdaFunction f = (str) -> System.out.println(str);
+        f.lambda("lambda 함수 실행");
+
+        /*
+        [method 참조]
+        lambda 함수가 하나의 method만 실행할때, lambda 함수를 단순하게 표현할 수 있습니다.
+        */
+        LambdaFunction g = System.out::println;
+        g.lambda("lambda 함수 실행 (method 참조)");
     }
 }

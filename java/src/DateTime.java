@@ -1,11 +1,13 @@
+/*
+- date / time -
+java.time package로 날짜와 시간을 다룰 수 있습니다.
+*/
+
 import java.time.*;
 
 public class DateTime {
     public static void main(String[] args) {
-        /*
-        - date / time -
-        java.time package로 날짜와 시간을 다룰 수 있습니다.
-        */
+
         System.out.println("\n=== date/time 객체 만들기 ===");
         /* now는 현재 날짜와 시간을 반환합니다. */
         LocalDate currentDate = LocalDate.now();
