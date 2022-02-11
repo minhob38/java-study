@@ -49,6 +49,7 @@ public class Collection {
         [Hash Map]
         key-value로 저장하는 table 입니다.
         */
+        /* HashMap 만들기 */
         System.out.println("\n=== HashMap ===");
         HashMap hashMap = new HashMap();
 
@@ -70,11 +71,5 @@ public class Collection {
         System.out.println("hashMap은 " + hashMap);
         hashMap.clear();
         System.out.println("hashMap은 " + hashMap);
-
-
-
-
-
-
     }
 }

@@ -1,5 +1,5 @@
--- [조회하기]
--- select [column 이름] from [table 이름]으로 조회할 수 있습니다.
+-- *** [select] ***
+-- select [column 이름] from [table 이름]으로 table을 조회할 수 있습니다.
 -- * 전체 column 조회하기
 select * from orders;
 
@@ -18,7 +18,6 @@ select o.order_id, o.customer_id from orders o;
 -- TODO: fetch
 select * from orders limit 10;
 select * from orders offset 5 limit 10;
-
 
 -- [조건으로 조회하기]
 -- select [column 이름] from [table 이름] where [조건]으로 조회할 수 있습니다.
@@ -48,9 +47,12 @@ select * from orders where employee_id = 3 or ship_country = 'Germany';
 select * from orders where ship_region is null;
 select * from orders where ship_region is not null;
 
--- [정렬하기] (default는 오름차순(asc)입니다.)
+-- [정렬하기]
+-- default는 오름차순(asc)입니다.
+-- table row를 전체 조회하기에, select에 없는 column에 대해 정렬할 수 있습니다.
 select * from orders order by customer_id;
 select * from orders order by customer_id asc, order_date desc;
+select order_id from orders order by customer_id;
 
 -- [중복없애기]
 -- select distinct [column 이름] from [table 이름]으로 중복을 없앨 수 있습니다.
