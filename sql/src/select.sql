@@ -61,7 +61,7 @@ select distinct customer_id from orders order by customer_id;
 select distinct customer_id, ship_via from orders order by customer_id, ship_via;
 select distinct on(customer_id) customer_id, ship_via from orders order by customer_id;
 
-
+-- [case]
 
 
 
