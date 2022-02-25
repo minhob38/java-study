@@ -1,69 +1,66 @@
 /*
-type guard
-- type guard는 type을 좁혀 type을 보호하는 것을 의미합니다. (typescript가 type을 정확히 추론하여 error가 발생하지 않도록 합니다.)
-- 조건문을 통해 type을 좁힙니다.
-- null check, typeof, instanceof, in, user-defined function, tagged union 등으로 type guard를 합니다.
+[generic]
+generic은 type의 함수입니다.
 */
 
-class Plane {
-  fly() {
-    console.log("🛩");
-  }
+/*
+[Mapped Type]
+type P = {
+[k in 'a' | 'b']: T[k]]
+};
+[k in 'a' | 'b']: T[k]는 map + for in 함수와 비슷합니다.
+['a', 'b'].map((k) => T[k])
+*/
+
+interface IServer {
+  language: string;
+  framework: string;
+  cloud: string;
 }
 
-class Train {
-  run() {
-    console.log("🚂");
-  }
+/*
+[keyof]
+key들의 union type을 반환합니다.
+*/
+type K = keyof IServer;
+
+/*
+[Partial]
+- Partial<T>
+- T의 모든 key를 optional로 바꾸어 반환합니다.
+*/
+type TPartialServer = Partial<IServer>;
+
+/*
+[Pick]
+- Pick<T, K>
+- K에서 지정한 T의 key들을 반환합니다.
+*/
+type TPickServer = Pick<IServer, "language" | "cloud">;
+
+/*
+[Readonly]
+- Readonly<T>
+- T의 모든 key를 readonly로 바꾸어 반환합니다.
+*/
+type TReadonlyServer = Readonly<IServer>;
+
+/*
+[함수]
+generic으로 함수를 만들 수 있습니다.
+*/
+function funcA<T, U>(a: T, b: U): [T, U] {
+  return [a, b];
 }
 
-// null check 기반 type guard
-function funcA(m: null | string): void {
-  if (!m) {
-    return console.log("null");
-  }
-  console.log(m.length);
-}
+const funcB = <T, U>(a: T, b: U): [T, U] => {
+  return [a, b];
+};
 
-// typeof 기반 type guard
-function funcB(m: number | string): void {
-  if (typeof m === "string") {
-    return console.log("string");
-  }
-  console.log("number");
-}
+// extends를 통해 generic type에 constraint를 만들 수 있습니다.
+const funcC = <T extends string | number>(a: T, b: T): [T, T] => {
+  return [a, b];
+};
 
-// instanceof 기반 type guard
-
-function funcC(m: Plane | Train): void {
-  if (m instanceof Plane) {
-    return m.fly();
-  }
-  m.run();
-}
-
-// in 기반 type guard
-function funcD(m: Plane | Train): void {
-  if ("fly" in m) {
-    return m.fly();
-  }
-  m.run();
-}
-
-// 사용자 정의 type guard function
-function isPlane(n: Plane | Train): n is Plane {
-  return n instanceof Plane;
-}
-
-function funcE(m: Plane | Train): void {
-  if (isPlane(m)) {
-    return m.fly();
-  }
-  m.run();
-}
-
-// generic
-// interface type
-// function
-// type assertion
-// type guard
+funcC("typescript", "nodejs");
+funcC<number>(3, 5);

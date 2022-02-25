@@ -41,13 +41,18 @@ interface IFuncC {
 }
 const funcC: IFuncC = (m, n) => m + n;
 
-const funcD = (m: number, n: number): number => m + n;
+interface IFuncD {
+  func(m: number, n: number): number;
+}
+const funcD: IFuncD["func"] = (m, n) => m + n;
 
-function funcE(m: number, n: number): number {
+const funcE = (m: number, n: number): number => m + n;
+
+function funcF(m: number, n: number): number {
   return m + n;
 }
 
-const funcF = function (m: number, n: number): number {
+const funcG = function (m: number, n: number): number {
   return m + n;
 };
 
@@ -74,3 +79,5 @@ const servers = [
 const serverInfos = servers.map((server: IServer): string => {
   return `${server.language}의 server는 ${server.server}입니다.`;
 });
+
+// overloading

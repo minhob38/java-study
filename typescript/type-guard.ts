@@ -1,5 +1,5 @@
 /*
-type guard
+[type guard]
 - type guard는 type을 좁혀 type을 보호하는 것을 의미합니다. (typescript가 type을 정확히 추론하여 error가 발생하지 않도록 합니다.)
 - 조건문을 통해 type을 좁힙니다.
 - null check, typeof, instanceof, in, user-defined function, tagged union 등으로 type guard를 합니다.
@@ -17,7 +17,7 @@ class Train {
   }
 }
 
-// null check 기반 type guard
+/* null check 기반 type guard */
 function funcA(m: null | string): void {
   if (!m) {
     return console.log("null");
@@ -25,7 +25,7 @@ function funcA(m: null | string): void {
   console.log(m.length);
 }
 
-// typeof 기반 type guard
+/* typeof 기반 type guard */
 function funcB(m: number | string): void {
   if (typeof m === "string") {
     return console.log("string");
@@ -33,8 +33,7 @@ function funcB(m: number | string): void {
   console.log("number");
 }
 
-// instanceof 기반 type guard
-
+/* instanceof 기반 type guard */
 function funcC(m: Plane | Train): void {
   if (m instanceof Plane) {
     return m.fly();
@@ -42,7 +41,7 @@ function funcC(m: Plane | Train): void {
   m.run();
 }
 
-// in 기반 type guard
+/* in 기반 type guard */
 function funcD(m: Plane | Train): void {
   if ("fly" in m) {
     return m.fly();
@@ -50,7 +49,7 @@ function funcD(m: Plane | Train): void {
   m.run();
 }
 
-// 사용자 정의 type guard function
+/* 사용자 정의 type guard function */
 function isPlane(n: Plane | Train): n is Plane {
   return n instanceof Plane;
 }
@@ -61,9 +60,3 @@ function funcE(m: Plane | Train): void {
   }
   m.run();
 }
-
-// generic
-// interface type
-// function
-// type assertion
-// type guard
