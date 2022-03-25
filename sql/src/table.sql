@@ -2,7 +2,8 @@
 -- table 지우기
 -- table 수정하기
 
-alter table inapp.counsels alter column client_id type varchar;
+-- *** [table 수정하기] ***
+-- alter table로 table을 수정합니다.
 
--- table column 추가하기
-alter table [talbe 이름] add column [column 이름] [type] [constraint]
+-- [table column 추가하기]
+-- alter table [talbe 이름] add column [column 이름] [type] [constraint]
