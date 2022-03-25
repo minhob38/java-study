@@ -9,37 +9,37 @@ cd /
 cd ..
 cd ~
 
-# [file]
+# *** file ***
 # * touch
 # * cp
 # * vi
 
-# [redirect]
+# *** redirect ***
 
-# [pipe]
+# *** pipe ***
 
-# [id]
-# * su
+# *** id ***
+# [su]
 # switch user로 계정을 바꿉니다.
 # - su [계정 이름] - 계정 이름을 지정하지 않으면 root로 바꿉니다.
 su
 su minho
 
-# * exit
+# [exit]
 # - 이전 계정으로 돌아갑니다.
 exit
 
-# * passwd
+# [passwd]
 # 비밀번호를 바꿉니다.
 # - passwd [계정 id]
 passwd minho
 sudo passwd root
 
-# * hostanme
+# [hostanme]
 # 현재 hostname을 보여줍니다.
 hostname
 
-# * set-hostanme
+# [set-hostanme]
 # hostname을 설정합니다.
 hostname [host 이름]
 hostnamectl
