@@ -22,6 +22,13 @@ CREATE TABLE inapp.verification_messages (
 	CONSTRAINT verification_messages_pk PRIMARY KEY (id)
 );
 
+
+-- *** [constraint 만들기] ***
 -- pk 이름 [table 이름]_pkey
 -- foreign key 이름
 -- [table 이름]_[foreign key 이름]_fkey
+
+-- [unique]
+-- alter table [table 이름] add constraint [contraint 이름] unique ([column 이름])
+-- constraint 이름: [table 이름]_[columne 이름]_key
+alter table inapp.verification_messages add constraint verification_messages_phone_key unique (phone_number);
