@@ -6,7 +6,7 @@ generic은 type의 함수입니다.
 /*
 [Mapped Type]
 type P = {
-[k in 'a' | 'b']: T[k]]
+[k in 'a' | 'b']: T[k]
 };
 [k in 'a' | 'b']: T[k]는 map + for in 함수와 비슷합니다.
 ['a', 'b'].map((k) => T[k])
