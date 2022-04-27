@@ -65,7 +65,7 @@ ping -c 5 -i 3 www.google.com
 # <설치>
 # sudo apt update
 # sudo apt install curl
-ping -c 5 -i 3 www.google.com
+curl -X get 3 www.google.com
 
 # [vim]
 # editor입니다.
