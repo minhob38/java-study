@@ -1,6 +1,7 @@
 /*
 [decorator]
-decorator는 class, method, accessor, property, parameter에 붙어 meta 정보 및 programming 로직을 더해줍니다.
+- decorator는 class, method, accessor, property, parameter에 붙어 meta 정보 및 programming 로직을 더해줍니다.
+- decorator는 class를 수정합니다.
 */
 
 /*
@@ -54,7 +55,7 @@ const plane = new Plane();
 plane.takeoff("kfx");
 
 /*
-[decorator factory]
+[decorator factory + method decorator]
 decorator를 만듭니다.
 */
 function deco(value) {
@@ -68,6 +69,14 @@ function deco(value) {
     console.log(propertyKey, typeof propertyKey);
     console.log("descriptor");
     console.log(descriptor, typeof descriptor);
+    console.log(descriptor.value, typeof descriptor.value);
+    // 함수 수정
+    const orgFunc = descriptor.value;
+    descriptor.value = function (...args) {
+      console.log("log");
+      console.log("this", this);
+      orgFunc.apply(this, ...args);
+    };
   };
 }
 class Plane {
@@ -150,8 +159,8 @@ function deco(target, propertyKey) {
 }
 
 class Plane {
+  /* decorator는 class 선언때 실행됩니다.*/
   @deco
-  /* decorator는 method 선언때 실행됩니다.*/
   name;
   constructor(name) {
     this.name = name;
