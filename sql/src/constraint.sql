@@ -15,3 +15,6 @@ CREATE TABLE inapp.counsels (
 	is_on_counsel bool NOT NULL DEFAULT false,
 	CONSTRAINT counsels_pkey PRIMARY KEY (cousel_id)
 );
+
+-- default 없애기
+alter table [table 이름] alter [column 이름] drop default;
