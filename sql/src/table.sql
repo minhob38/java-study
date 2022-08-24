@@ -2,7 +2,6 @@
 -- table 지우기
 -- table 수정하기
 
-alter table inapp.counsels alter column client_id type varchar;
 
 
 -- *** [table 수정하기] ***
@@ -34,18 +33,15 @@ CREATE TABLE inapp.verification_messages (
 -- [unique]
 -- alter table [table 이름] add constraint [contraint 이름] unique ([column 이름])
 -- constraint 이름: [table 이름]_[column 이름]_key
-alter table inapp.verification_messages add constraint verification_messages_phone_key unique (phone_number);
 
 -- [primary key]
 -- alter table [table 이름] add constraint [contraint 이름] primary key ([column 이름])
 -- constraint 이름: [table 이름]_[column 이름]_pkey
-create table [table 이름] (
-	id int,
-	constraint verification_messages_pk primary key (id)
-);
-
-alter table [table 이름]
+-- create table [table 이름] (
+--   id int,
+--   constraint verification_messages_pk primary key (id)
+-- );
 
 -- [foreign key]
--- alter table [table 이름] add constraint [contraint 이름] primary key ([column 이름])
--- constraint 이름: [table 이름]_[column 이름]_pkey
+-- alter table [table 이름] add constraint [contraint 이름] foreign key ([column 이름]) references [참조 table 이름]([참조 column in]) delete 조건
+-- constraint 이름: [table 이름]_[column 이름]_fkey
