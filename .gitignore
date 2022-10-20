@@ -15,3 +15,8 @@ c/structure
 c/memory
 c/preprocessor
 c/module/module
+
+# python
+.ipynb_checkpoints
+하계올림픽메달.xlsx
+test.csv
