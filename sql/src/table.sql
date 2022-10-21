@@ -12,17 +12,16 @@
 
 -- *** [table 만들기] ***
 -- create table로 table을 만듭니다.
-CREATE TABLE inapp.verification_messages (
+create table messages (
 	id bigint not null generated always as identity,
 	-- id uuid not null default gen_random_uuid(),
-	phone_number varchar not null,
-	verification_code varchar not null,
-	is_verified bool not null default false,
-	is_expired bool not null default false,
-	message_count smallint not null default 0,
+	author_id varchar,
+	content varchar not null,
+	is_deleted bool not null default false,
 	created_at timestamptz not null default now(),
 	updated_at timestamptz,
-	constraint verification_messages_pk primary key (id)
+	constraint verification_messages_id_pk primary key (id),
+	constraint verification_messages_id_fk foreign key (author_id) references users (id) on delete set null
 );
 
 
