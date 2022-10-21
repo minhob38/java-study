@@ -1,11 +1,42 @@
 -- *** [function] ***
 -- 함수는 입력과 출력 간 관계의 표현식이며, 또다른 의미로는 하나의 단위로 실행되는 sql code의 집합입니다.
+-- sql 함수는 마지막 sql 코드를 실행하고 반환합니다.
 
--- [join 유형]
--- * inner join
--- on 조건에 맞는 table a와 table b의 행들을 연결하여 새로운 table을 만듭니다.
--- join 결과는 교집합과 같습니다.
--- select [column 이름] from [table a 이름] join [table b 이름] on [table a's join key column] = [table b's join key column]
+
+-- [함수선언]
+-- * sql
+-- create or replace function [함수이름]([매개변수] [자료형])
+-- returns [반환 자료형] as
+-- '(또는 $$)
+--  	[function body]
+-- '(또는 $$)
+-- language sql;
+
+-- * plpgsql
+-- create or replace function [함수이름]([매개변수] [자료형])
+-- returns [반환 자료형] as
+-- '(또는 $$)
+--      declare
+--          [변수이름] [자료형]:= [변수값];
+--      begin
+--  	    [function body]
+--      end;
+-- '(또는 $$)
+-- language plpgsql;
+-- (begin / end는 {}와 비슷합니다.)
+
+create or replace function fn_add(a int, b int)
+returns int as
+$$
+    declare
+        table_name varchar := 'orders';
+    begin 
+        return count(*) from  a into table_name;
+    end;
+$$
+language plpgsql;
+select fn_add(3, 5);
+--
 
 -- function (sql)
 create or replace function fn_order_count()
@@ -14,7 +45,6 @@ returns int8 as
 	select count(*) from orders;
 '
 language sql;
-
 select fn_order_count();
 
 create or replace function fn_order_count()
@@ -23,6 +53,7 @@ $$
 	select count(*) from orders;
 $$
 language sql;
+select fn_order_count();
 
 create or replace function fn_add(a int, b int)
 returns int as
@@ -79,8 +110,6 @@ $$
 language plpgsql;
 select fn_add(3, 5);
 
---
-
 create or replace function fn_add(a int, b int)
 returns int as
 $$
@@ -90,17 +119,14 @@ $$
 $$
 language plpgsql;
 select fn_add(3, 5);
---
 
-?????
 create or replace function fn_table_count()
 returns int as
 $$
     declare
         table_name varchar := 'orders';
     begin 
-        return count(*) from  a into table_name;
+        return count(*) from table_name;
     end;
 $$
 language plpgsql;
----
