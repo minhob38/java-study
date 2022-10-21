@@ -13,15 +13,16 @@
 -- *** [table 만들기] ***
 -- create table로 table을 만듭니다.
 CREATE TABLE inapp.verification_messages (
-	id bigint NOT NULL GENERATED ALWAYS AS IDENTITY ,
-	phone_number varchar NOT NULL,
-	verification_code varchar NOT NULL,
-	is_verified bool NOT NULL DEFAULT false,
-	is_expired bool NOT NULL DEFAULT false,
-	message_count smallint NOT NULL DEFAULT 0,
-	created_at date NOT NULL DEFAULT now(),
-	updated_at date,
-	CONSTRAINT verification_messages_pk PRIMARY KEY (id)
+	id bigint not null generated always as identity,
+	-- id uuid not null default gen_random_uuid(),
+	phone_number varchar not null,
+	verification_code varchar not null,
+	is_verified bool not null default false,
+	is_expired bool not null default false,
+	message_count smallint not null default 0,
+	created_at timestamptz not null default now(),
+	updated_at timestamptz,
+	constraint verification_messages_pk primary key (id)
 );
 
 
