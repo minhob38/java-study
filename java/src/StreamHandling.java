@@ -28,14 +28,17 @@ public class StreamHandling {
         */
         System.out.println("\n=== Optional ===");
         /* Optional 저장하기 */
-        Optional<String> optionalA = Optional.of("java");
-        Optional<String> optionalB = Optional.ofNullable(null);
+        Optional<String> optionalA = Optional.empty();
+        Optional<String> optionalB = Optional.of("java");
+        Optional<String> optionalC = Optional.ofNullable(null);
 
         /* Optional 가져오기 */
-        String strA = optionalA.get();
-        String strB = optionalB.orElse("null :(");
+        String strA = optionalC.orElse("null :(");
+        String strB = optionalB.get();
+        String strC = optionalC.orElse("null :(");
         System.out.println("strA는 " + strA);
         System.out.println("strB는 " + strB);
+        System.out.println("strB는 " + strC);
 
         /* Optional null 검사 */
         Boolean isNullA = optionalA.isPresent();
