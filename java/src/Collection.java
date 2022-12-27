@@ -72,4 +72,7 @@ public class Collection {
         hashMap.clear();
         System.out.println("hashMap은 " + hashMap);
     }
+
+    public static class EnumType {
+    }
 }
