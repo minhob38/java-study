@@ -9,6 +9,13 @@ import java.util.*;
 public class Collection {
     public static void main(String[] args) {
         /*
+        [Collections]
+        */
+        List emptyList = Collections.emptyList();
+        // emptyList.add(3); -> error 발생 (emptyList는 immutable)
+
+
+        /*
         [ArrayList]
         - data의 저장 순서가 유지되며, 중복으로 저장이됩니다. (동적할당)
         - add로 값을 저장합니다.
@@ -23,7 +30,6 @@ public class Collection {
         for (int i = 0; i < arraylist.size(); i++) {
             System.out.println("arrayList(" + i + ") 는 " + arraylist.get(i));
         }
-
 
         /*
         [LinkedList]

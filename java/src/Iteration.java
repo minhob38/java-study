@@ -57,5 +57,14 @@ public class Iteration {
             if (q == 3) continue;
             System.out.println("q는" + q);
         }
+
+        /*
+        간단한 for문
+        Collection(List/Set), array에 대해 간단한 반복문을 만들수 있습니다.
+         */
+        String[] arr = {"q", "w", "e", "r"};
+        for (String item:arr) {
+            System.out.println(item);
+        }
     }
 }
