@@ -10,17 +10,36 @@ public class Collection {
     public static void main(String[] args) {
         /*
         [ArrayList]
-        data의 저장 순서가 유지되며, 중복으로 저장이됩니다. (정적할당)
+        - data의 저장 순서가 유지되며, 중복으로 저장이됩니다. (동적할당)
+        - add로 값을 저장합니다.
+        - get으로 값을 조회합니다.
         */
         System.out.println("\n=== ArrayList ===");
         ArrayList arraylist = new ArrayList(5);
+        arraylist.add("q");
+        arraylist.add("w");
+        arraylist.add("e");
+        arraylist.add("r");
+        for (int i = 0; i < arraylist.size(); i++) {
+            System.out.println("arrayList(" + i + ") 는 " + arraylist.get(i));
+        }
+
 
         /*
         [LinkedList]
-        data의 저장 순서가 유지되며, 중복으로 저장이됩니다. (동적할당)
+        - data의 저장 순서가 유지되며, 중복으로 저장이됩니다. (동적할당)
+        - add로 값을 저장합니다.
+        - get으로 값을 조회합니다.
         */
         System.out.println("\n=== LinkedList ===");
         LinkedList linkedList = new LinkedList();
+        linkedList.add("q");
+        linkedList.add("w");
+        linkedList.add("e");
+        linkedList.add("r");
+        for (int i = 0; i < linkedList.size(); i++) {
+            System.out.println("linkedList(" + i + ") 는 " + linkedList.get(i));
+        }
 
         /*
         [Stack]
