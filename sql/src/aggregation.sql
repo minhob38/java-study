@@ -19,13 +19,13 @@ select avg(ship_via) from orders;
 -- [행순번]
 -- 해당 행의 순서를 정의합니다.
 -- * basic
--- select row_number() over () [column alias 이름] from [table 이름]
+select row_number() over () [column alias 이름] from [table 이름]
 
 -- * 정렬기준에 맞게 순번 정의
--- select row_number() over (order by [순번 기준 column]) [column alias 이름] from [table 이름]
+select row_number() over (order by [순번 기준 column]) [column alias 이름] from [table 이름]
 
 -- * 정렬기준에 맞게 순번 정의
--- select row_number() over (order by [순번 기준 column]) [column alias 이름] from [table 이름]
+select row_number() over (order by [순번 기준 column]) [column alias 이름] from [table 이름]
 
 -- * 그룹기준에 맞게 순번 정의
--- select row_number() over (partion by [그룹 기준 column] order by [순번 기준 column]) [column alias 이름] from [table 이름]
+select row_number() over (partion by [그룹 기준 column] order by [순번 기준 column]) [column alias 이름] from [table 이름]
