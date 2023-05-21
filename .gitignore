@@ -1,7 +1,7 @@
 # java
-java/out
-java/.idea
-java/programming-language-study.iml
+out
+.idea
+programming-language-study.iml
 
 # c
 c/data_type
