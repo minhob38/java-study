@@ -24,103 +24,17 @@
 
 do
 $$
-    declare
-        table_name varchar := 'orders';
-    begin 
-        raise notice 'order의 개수는 %입니다.', (count(*) from  a into table_name);
-    end;
+  declare 
+    n int := 10;
+    acc int := 0;
+    i int := 1;
+  
+  begin
+    loop
+      acc := acc + i;
+      exit when i = n;
+      i := i + 1;	
+    end loop;
+    raise notice '합계는 %', acc;
+  end;
 $$
---
-
--- function (sql)
-create or replace function fn_order_count()
-returns int8 as
-'
-	select count(*) from orders;
-'
-language sql;
-select fn_order_count();
-
-create or replace function fn_order_count()
-returns int as
-$$
-	select count(*) from orders;
-$$
-language sql;
-select fn_order_count();
-
-create or replace function fn_add(a int, b int)
-returns int as
-$$
-	select a + b;
-$$
-language sql;
-select fn_add(3, 5);
-
-create or replace function fn_add(a int, b int)
-returns int as
-$$
-	select $1 + $2;
-$$
-language sql;
-select fn_add(3, 5);
-
-
--- function (plpgsql)
-create or replace function fn_order_count()
-returns int as
-$$
-    begin
-        return count(*) from orders;
-    end;
-$$
-language plpgsql;
-
-select fn_order_count();
---
-create or replace function fn_add(int, int)
-returns int as
-$$
-    declare
-        a alias for $1;
-        b alias for $2;
-    begin 
-        return a + b;
-    end;
-$$
-language plpgsql;
-
-select fn_add(3, 5);
-
---
-
-create or replace function fn_add(int, int)
-returns int as
-$$
-    begin 
-        return $1 + $2;
-    end;
-$$
-language plpgsql;
-select fn_add(3, 5);
-
-create or replace function fn_add(a int, b int)
-returns int as
-$$
-    begin 
-        return a + b;
-    end;
-$$
-language plpgsql;
-select fn_add(3, 5);
-
-create or replace function fn_table_count()
-returns int as
-$$
-    declare
-        table_name varchar := 'orders';
-    begin 
-        return count(*) from table_name;
-    end;
-$$
-language plpgsql;
