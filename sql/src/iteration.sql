@@ -7,18 +7,14 @@
 --   exit when [조건] 또는 if [조건] exit;
 -- end loop;
 
--- * plpgsql
--- create or replace function [함수이름]([매개변수] [자료형])
--- returns [반환 자료형] as
--- '(또는 $$)
---      declare
---          [변수이름] [자료형]:= [변수값];
---      begin
---  	    [function body]
---      end;
--- '(또는 $$)
--- language plpgsql;
--- (begin / end는 {}와 비슷합니다.)
+-- [for]
+-- for i in [1..n]
+--   loop
+--     [반복 코드]
+--     exit when [조건] 또는 if [조건] exit;
+--   end loop;
+
+-- [for each] -> TODO
 
 -- loop
 create or replace function summation(n int)
@@ -36,6 +32,27 @@ $$
       i := i + 1;	
     end loop;
     
+	return acc;
+  end;
+$$
+language plpgsql;
+
+select summation(10);
+
+-- for
+create or replace function summation(n int)
+returns int as
+$$
+  declare 
+    acc int := 0;
+    i int := 1;
+  
+  begin
+    for i in 1..n
+      loop
+	    acc := acc + i;
+        i := i + 1;	
+      end loop;
 	return acc;
   end;
 $$
